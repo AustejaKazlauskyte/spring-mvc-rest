@@ -10,22 +10,25 @@ import java.util.List;
 @Service
 public class CustomerServiceImpl implements CustomerService {
 
-  // deklaruojam interfeisa
   private final CustomerRepository customerRepository;
 
-  // konstruktorius - paima objekta ir grazina
   public CustomerServiceImpl(CustomerRepository customerRepository) {
     this.customerRepository = customerRepository;
   }
 
-  // overaidina - grazina jau pakeistus biski
   @Override
   public Customer findCustomerById(Long id) {
-    return customerRepository.getOne(id);
+    return customerRepository.findById(id).get();
   }
 
   @Override
   public List<Customer> findAllCustomers() {
     return customerRepository.findAll();
   }
+
+  @Override
+  public Customer saveCustomer(Customer customer) {
+    return customerRepository.save(customer);
+  }
 }
+

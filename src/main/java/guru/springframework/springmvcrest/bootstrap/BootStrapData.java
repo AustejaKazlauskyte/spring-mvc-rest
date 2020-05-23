@@ -3,9 +3,10 @@ package guru.springframework.springmvcrest.bootstrap;
 import guru.springframework.springmvcrest.domain.Customer;
 import guru.springframework.springmvcrest.repositories.CustomerRepository;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 
-@Controller
+@Component
 public class BootStrapData implements CommandLineRunner {
 
   private final CustomerRepository customerRepository;
